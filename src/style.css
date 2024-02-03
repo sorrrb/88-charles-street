@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Sanchez&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-white: #f1f5f9;
+  --background-black: #09090b;
+  --text-white: #cbd5e1;
+  --text-black: #27272a;
+  --main-accent: #d2aa4a;
+  --active-accent: #faf7e2;
+  --bright-accent: #f7e988;
+  --dull-accent: #ac8220;
+}
+
+@font-face {
+  font-family: 'Ephesis';
+  src: url('./assets/fonts/Ephesis.ttf');
+}
+
+@font-face {
+  font-family: 'Quando';
+  src: url('./assets/fonts/Quando.ttf');
+}
+
+#page-nav, .logo, .page-links, .social-links, #info-container, .info-card-container {
+  display: flex;
+}
+
+#page-nav {
+  gap: 36px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-black);
+}
+
+.logo {
+  gap: 8px;
+  align-items: center;
+  background: -webkit-linear-gradient(var(--main-accent), var(--bright-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Ephesis';
+}
+
+.logo-maintext {
+  margin-top: 8px;
+  font-size: 2.5rem;
+}
+
+.logo-subtext {
+  text-align: center;
+}
+
+.logo-subtext > h1 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.logo-subtext > h2 {
+  font-size: 0.5rem;
+  font-weight: 600;
+  font-family: 'Quando', 'Times New Roman', serif;
+  letter-spacing: 1px;
+}
+
+.page-links {
+  margin-inline: 16px;
+  gap: 16px;
+  font-family: 'Quando';
+  font-weight: 600
+}
+
+.page-links li {
+  list-style: none;
+}
+
+.page-links a {
+  background: -webkit-linear-gradient(var(--bright-accent), var(--main-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-links a.active-link {
+  text-decoration: underline;
+  color: var(--active-accent);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+.social-links {
+  gap: 8px;
+}
+
+#hero-container {
+  height: 400px;
+  display: grid;
+  place-items: center;
+  background-color: var(--background-white);
+}
+
+#hero-container > h1 {
+  color: var(--text-black);
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 3rem;
+}
+
+#hero-container > h1 span {
+  font-size: 0.675rem;
+}
+
+#info-container {
+  height: 600px;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--background-black);
+}
+
+.info-card {
+  background-color: var(--background-white);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  color: var(--background-black);
+  font-family: 'Sanchez', Times, serif;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.info-card img {
+  height: 300px;
+  width: 300px;
+}
+
+.info-text {
+  padding: 8px 0 16px 0;
+  font-size: 2rem;
+}
