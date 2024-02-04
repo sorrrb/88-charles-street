@@ -83,9 +83,13 @@ function generateHero() {
   const heroSection = document.createElement('section');
   heroSection.id = 'hero-container';
 
+  const heroImage = document.createElement('div');
+  heroImage.classList.add('hero-background');
+
   const heroImageCaption = document.createElement('h1');
   heroImageCaption.innerHTML = 'Modern <span>&#9899;</span> Elegant <span>&#9899;</span> Inviting';
 
+  heroSection.appendChild(heroImage);
   heroSection.appendChild(heroImageCaption);
 
   return heroSection;
