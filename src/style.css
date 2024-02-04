@@ -27,7 +27,7 @@
   src: url('./assets/fonts/Quando.ttf');
 }
 
-#page-nav, .logo, .page-links, .social-links, #info-container, .info-card-container {
+#page-nav, .logo, .page-links, .social-links, #media-container, #info-container {
   display: flex;
 }
 
@@ -70,12 +70,13 @@
 
 .page-links {
   margin-inline: 16px;
-  gap: 16px;
+  gap: 24px;
   font-family: 'Quando';
   font-weight: 600
 }
 
 .page-links li {
+  cursor: pointer;
   list-style: none;
 }
 
@@ -83,6 +84,14 @@
   background: -webkit-linear-gradient(var(--bright-accent), var(--main-accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.page-links a:hover {
+  text-decoration: underline;
+  color: var(--active-accent);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
 }
 
 .page-links a.active-link {
@@ -97,15 +106,21 @@
   gap: 8px;
 }
 
+.social-links > img {
+  cursor: pointer;
+}
+
 #hero-container {
   height: 400px;
   display: grid;
   place-items: center;
-  background-color: var(--background-white);
+  background-image: url(./assets/media/hero-background.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 #hero-container > h1 {
-  color: var(--text-black);
+  color: white;
   display: flex;
   gap: 16px;
   align-items: center;
@@ -116,28 +131,64 @@
   font-size: 0.675rem;
 }
 
-#info-container {
+#media-container {
+  gap: 12px;
+  padding-inline: 15%;
   height: 600px;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   background-color: var(--background-black);
 }
 
-.info-card {
+.media-card {
   background-color: var(--background-white);
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-width: 1px;
+  border-style: solid;
+  border-image: linear-gradient(to right, lightgray, gray) 1;
   color: var(--background-black);
   font-family: 'Sanchez', Times, serif;
   letter-spacing: 1px;
   text-align: center;
 }
 
-.info-card img {
+.media-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(255,255,255,0.4);
+}
+
+.media-card img {
   height: 300px;
   width: 300px;
 }
 
-.info-text {
+.media-text {
   padding: 8px 0 16px 0;
   font-size: 2rem;
+}
+
+#info-container {
+  height: 600px;
+  justify-content: space-evenly;
+  align-items: center;
+  background: linear-gradient(var(--main-accent), var(--dull-accent));
+}
+
+#info-text {
+  font-family: 'Quando';
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+#info-text > h1 {
+  font-size: 2rem;
+  text-decoration: underline;
+}
+
+#page-foot {
+  height: 50px;
+  display: grid;
+  place-items: center;
+  background-color: var(--background-black);
+  color: var(--text-white);
 }

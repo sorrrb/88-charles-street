@@ -91,15 +91,15 @@ function generateHero() {
   return heroSection;
 }
 
-function generateInfoCard(imgSrc,subtext) {
+function generateMediaCard(imgSrc,subtext) {
   const card = document.createElement('div');
-  card.classList.add('info-card');
+  card.classList.add('media-card');
 
   const image = new Image();
   image.src = imgSrc;
 
   const textContainer = document.createElement('div');
-  textContainer.classList.add('info-text');
+  textContainer.classList.add('media-text');
 
   const text = document.createElement('h4');
   text.textContent = subtext;
@@ -112,29 +112,95 @@ function generateInfoCard(imgSrc,subtext) {
   return card;
 }
 
+function generateMedia() {
+  const mediaSection = document.createElement('section');
+  mediaSection.id = 'media-container';
+
+  const atmosphereCard = generateMediaCard(AtmosphereImage, 'Ambiance');
+  const foodCard = generateMediaCard(FoodImage, 'Cuisine');
+  const cocktailCard = generateMediaCard(DrinkImage, 'Cocktails');
+
+  mediaSection.appendChild(atmosphereCard);
+  mediaSection.appendChild(foodCard);
+  mediaSection.appendChild(cocktailCard);
+
+  return mediaSection;
+}
+
 function generateInfo() {
   const infoSection = document.createElement('section');
   infoSection.id = 'info-container';
 
-  const foodCard = generateInfoCard(FoodImage, 'Cuisine');
-  const cocktailCard = generateInfoCard(DrinkImage, 'Cocktails');
-  const atmosphereCard = generateInfoCard(AtmosphereImage, 'Ambiance');
+  const iframe = document.createElement('iframe');
+  iframe.id = 'location-iframe';
+  iframe.title = '88 Charles St, Montgomery, NY 12549';
+  iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2986.9680971088396!2d-74.2383602!3d41.52663169999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dcd5e889b491b5%3A0xe838c1e5049edf0f!2s88%20Charles%20St%2C%20Montgomery%2C%20NY%2012549!5e0!3m2!1sen!2sus!4v1707002292848!5m2!1sen!2sus';
+  iframe.height = 400;
+  iframe.width = 400;
+  iframe.allowFullscreen = '';
+  iframe.loading = 'lazy';
+  iframe.referrerPolicy = 'no-referrer-when-downgrade';
 
-  infoSection.appendChild(foodCard);
-  infoSection.appendChild(cocktailCard);
-  infoSection.appendChild(atmosphereCard);
+  const textContainer = document.createElement('div');
+  textContainer.id = 'info-text';
+
+  const mainHeading = document.createElement('h1');
+  mainHeading.textContent = 'Visit Us';
+
+  const locationWrapper = document.createElement('div');
+  const locationHeading = document.createElement('h2');
+  locationHeading.textContent = 'Location:';
+  
+  const locationText = document.createElement('p');
+  locationText.textContent = '88 Charles Street, Montgomery, NY 12549';
+
+  const hoursWrapper = document.createElement('div');
+  const hoursHeading = document.createElement('h2');
+  hoursHeading.textContent = 'Hours:';
+
+  const hoursText = document.createElement('p');
+  hoursText.innerHTML = '12:00p - 3:00p / 4:00p - 9:00p<br>Monday, Wednesday, Thursday<br><br>12:00p - 3:00p / 4:00p - 9:00p<br>Friday<br><br>4:00p - 10:00p<br>Saturday<br><br>4:00p - 9:00p<br>Sunday';
+
+  hoursWrapper.appendChild(hoursHeading);
+  hoursWrapper.appendChild(hoursText);
+
+  locationWrapper.appendChild(locationHeading);
+  locationWrapper.appendChild(locationText);
+
+  textContainer.appendChild(mainHeading);
+  textContainer.appendChild(locationWrapper);
+  textContainer.appendChild(hoursWrapper);
+
+  infoSection.appendChild(iframe);
+  infoSection.appendChild(textContainer);
 
   return infoSection;
+}
+
+function generateFooter() {
+  const footerSection = document.createElement('footer');
+  footerSection.id = 'page-foot';
+
+  const footerText = document.createElement('p');
+  footerText.innerHTML = '[2024] 88 Charles St. &#169; All Rights Reserved';
+
+  footerSection.appendChild(footerText);
+
+  return footerSection;
 }
 
 function generatePage() {
   const header = generateNav();
   const hero = generateHero();
+  const media = generateMedia();
   const info = generateInfo();
+  const footer = generateFooter();
 
   document.body.appendChild(header);
   document.body.appendChild(hero);
+  document.body.appendChild(media);
   document.body.appendChild(info);
+  document.body.appendChild(footer);
 }
 
 export function loadPage() {
